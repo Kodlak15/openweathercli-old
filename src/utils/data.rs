@@ -31,8 +31,8 @@ pub struct Main {
     pub temp_max: f32, 
     pub pressure: i32, 
     pub humidity: i32, 
-    pub sea_level: i32, 
-    pub grnd_level: i32, 
+    pub sea_level: Option<i32>,
+    pub grnd_level: Option<i32>,
 }
 
 #[allow(dead_code)]

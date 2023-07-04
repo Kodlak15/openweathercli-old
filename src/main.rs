@@ -5,8 +5,8 @@ use openweathercli::utils::uri::construct_uri;
 async fn main() {
     let uri = construct_uri();
     let response = get_api_response(uri).await.unwrap();
-    let json = get_json(response).await;
+    let json = get_json(response).await.unwrap();
 
-    // Example:
-    println!("{}", json.wind.speed)
+    // Example call:
+    println!("Wind speed: {} MPH", json.wind.speed);
 }
