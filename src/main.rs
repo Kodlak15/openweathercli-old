@@ -1,47 +1,12 @@
-use clap::Parser;
-use reqwest;
-use reqwest::{Response, Error};
-use serde::Deserialize;
+use openweathercli::utils::request::{get_api_response, get_json};
+use openweathercli::utils::uri::construct_uri;
 
 #[tokio::main]
 async fn main() {
-    let args = Args::parse();
-    let uri = format!(
-        "https://api.openweathermap.org/data/2.5/weather?lat={}&lon={}&units={}&appid={}",
-        args.latitude,
-        args.longitude,
-        args.units,
-        args.key,
-    );
+    let uri = construct_uri();
+    let response = get_api_response(uri).await.unwrap();
+    let json = get_json(response).await;
 
-    // Find a way to parse json into struct
-    let res = get_response(uri).await.unwrap();
-    println!("response = {:?}", res.text().await);
-}
-
-#[derive(Parser)]
-struct Args {
-    #[arg(long)]
-    latitude: String,
-    #[arg(long)]
-    longitude: String,
-    #[arg(long)]
-    units: String,
-    #[arg(long)]
-    key: String,
-}
-
-#[derive(Deserialize)]
-struct Coord {
-    longitude: f32,
-    latitude: f32,
-}
-
-#[derive(Deserialize)]
-struct Data {
-    coords: Coord,
-}
-
-async fn get_response(uri: String) -> Result<Response, Error> {
-    reqwest::get(uri).await
+    // Example:
+    println!("{}", json.wind.speed)
 }
