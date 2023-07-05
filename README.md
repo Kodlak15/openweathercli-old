@@ -1,6 +1,6 @@
 # About
 
-This is command a line program that can be used to interact with the [OpenWeatherMap](https://openweathermap.org/) API, written in Rust. Do note that I only intend to work on support for features included in the free tier. This is currently VERY early in devlopment. There are almost surely bugs, and the code base is not particularly elegant at this point in time. As of now the project has only been tested on Linux.
+This is a command line program that can be used to interact with the [OpenWeatherMap](https://openweathermap.org/) API, written in Rust. Do note that I only intend to work on support for features included in the free tier. This is currently VERY early in devlopment. There are almost surely bugs, and the code base is not particularly elegant at this point in time. As of now the project has only been tested on Linux.
 
 # Installation
 
