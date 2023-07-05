@@ -22,7 +22,7 @@ ln -s {absolute_path_to_source}/target/release/openweathercli $HOME/bin
 
 ```
 # Assumes openweathercli has been added to your PATH variable
-# The following command prints the temperature for the location specified in $HOME/.config/config.yaml
+# The following command prints the temperature for the location specified in $HOME/.config/owcli/config.yaml
 
 openweathercli --key {your_api_key} --print temp --verbose
 ```
