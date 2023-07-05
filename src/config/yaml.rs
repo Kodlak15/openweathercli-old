@@ -6,6 +6,7 @@ pub struct Yaml {
     pub lat: Option<f32>,
     pub lon: Option<f32>,
     pub units: Option<String>,
+    pub key: Option<String>,
 }
 
 pub fn get_yaml(fname: String) -> Yaml {

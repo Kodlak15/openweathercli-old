@@ -9,7 +9,7 @@ pub struct Args {
     #[arg(long)]
     pub units: Option<String>,
     #[arg(long)]
-    pub key: String,
+    pub key: Option<String>,
     #[arg(long)]
     pub print: Option<String>,
     #[arg(long, action)]

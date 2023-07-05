@@ -57,10 +57,12 @@ pub fn get_config(fname: String) -> Config {
         None => yaml.units.unwrap(),
     };
 
-    // Get the API key
-    let key = args.key;
-    
-    // Get actions
+    let key = match args.key {
+        Some(key) => key,
+        None => yaml.key.unwrap(),
+    };
+
+    // Get actions to be completed
     let actions = Actions {
         print: args.print, 
     };
