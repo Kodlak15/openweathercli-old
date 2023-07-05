@@ -40,7 +40,7 @@ pub struct Main {
 pub struct Wind {
     pub speed: f32,
     pub deg: i32, 
-    pub gust: f32, 
+    pub gust: Option<f32>, 
 }
 
 #[allow(dead_code)]
@@ -52,7 +52,7 @@ pub struct Clouds {
 #[allow(dead_code)]
 #[derive(Deserialize)]
 pub struct Sys {
-    pub country: String,
+    pub country: Option<String>,
     pub sunrise: i32,
     pub sunset: i32,
 }

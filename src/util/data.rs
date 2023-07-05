@@ -4,6 +4,8 @@ impl Data {
     // Print data for specified metric
     pub fn print(&self, opt: String, units: String, verbose: bool) {
         match &opt[..] {
+            "lat" => println!("{}", self.lat(verbose)),
+            "lon" => println!("{}", self.lon(verbose)),
             "id" => println!("{}", self.id(verbose)),
             "main" => println!("{}", self.main(verbose)),
             "description" => println!("{}", self.description(verbose)),
@@ -16,8 +18,24 @@ impl Data {
             "humidity" => println!("{}", self.humidity(verbose)),
             "sea_level" => println!("{}", self.sea_level(verbose)),
             "grnd_level" => println!("{}", self.grnd_level(verbose)),
+            "name" => println!("{}", self.name(verbose)),
             _ => println!("Invalid option selected: {}", opt),
         };
+    }
+
+    // Coordinates
+    pub fn lat(&self, verbose: bool) -> String {
+        match verbose {
+            true => format!("Latitude: {}", self.coord.lat),
+            false => self.coord.lat.to_string(),
+        }
+    }
+
+    pub fn lon(&self, verbose: bool) -> String {
+        match verbose {
+            true => format!("Longitude: {}", self.coord.lon),
+            false => self.coord.lon.to_string(),
+        }
     }
 
     // Weather
@@ -103,6 +121,14 @@ impl Data {
         match verbose {
             true => format!("Ground level pressure: {} hPa", self.main.grnd_level.expect("No data for field grnd_level")),
             false => self.main.sea_level.expect("No data for field grnd_level").to_string(),
+        }
+    }
+
+    // Location
+    pub fn name(&self, verbose: bool) -> String {
+        match verbose {
+            true => format!("Location: {}", self.name),
+            false => self.name.to_string(),
         }
     }
 }
