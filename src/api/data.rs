@@ -10,27 +10,27 @@ pub struct Coord {
 #[allow(dead_code)]
 #[derive(Deserialize)]
 pub struct WeatherData {
-    pub data: Weather
+    pub data: Weather,
 }
 
 #[allow(dead_code)]
 #[derive(Deserialize)]
 pub struct Weather {
     pub id: i32,
-    pub main: String, 
-    pub description: String, 
-    pub icon: String, 
+    pub main: String,
+    pub description: String,
+    pub icon: String,
 }
 
 #[allow(dead_code)]
 #[derive(Deserialize)]
 pub struct Main {
     pub temp: f32,
-    pub feels_like: f32, 
-    pub temp_min: f32, 
-    pub temp_max: f32, 
-    pub pressure: i32, 
-    pub humidity: i32, 
+    pub feels_like: f32,
+    pub temp_min: f32,
+    pub temp_max: f32,
+    pub pressure: i32,
+    pub humidity: i32,
     pub sea_level: Option<i32>,
     pub grnd_level: Option<i32>,
 }
@@ -39,8 +39,8 @@ pub struct Main {
 #[derive(Deserialize)]
 pub struct Wind {
     pub speed: f32,
-    pub deg: i32, 
-    pub gust: Option<f32>, 
+    pub deg: i32,
+    pub gust: Option<f32>,
 }
 
 #[allow(dead_code)]

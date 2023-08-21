@@ -17,12 +17,11 @@ async fn main() {
         },
         None => "".to_string(),
     };
-    
-    // let config = get_config("config.yaml".to_string());
+
     let config = get_config(confdir);
     let uri = construct_uri(&config);
-    let response = get_api_response(uri).await.unwrap();
-    let data = get_json(response).await.unwrap();
+    let response = get_api_response(uri).await.expect("Failed to get API response!");
+    let data = get_json(response).await.expect("Failed to parse json!");
 
     // Complete actions specified via command line
     config.actions(&data);
